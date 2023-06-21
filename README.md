@@ -1,4 +1,8 @@
-# Kütüphaneler
+# Uçuş Radarı
+Ön İzleme:
+https://flight-radar.netlify.app/
+
+## Kütüphaneler
 
 - leaflet
 - react-leaflet
@@ -7,7 +11,7 @@
 - axios
 - - thunk (toolkitin yanında geliyor)
 
-# Kaynaklar
+## Kaynaklar
 
 - API: https://rapidapi.com/apidojo/api/flight-radar1
 
@@ -16,7 +20,7 @@
 - Sağ Üst Enlem: 41.484211
 - Sağ Üst Boylam: 43.510117
 
-# Yapılacaklar
+## Yapılacaklar
 
 - Liste görünümü `ListView.jsx` bileşeni oluştur
 - Harita görünümü `MapView.jsx` bileşeni oluştur
