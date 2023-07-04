@@ -1,4 +1,5 @@
 # Uçuş Radarı
+
 Ön İzleme:
 https://flight-radar.netlify.app/
 
@@ -54,7 +55,7 @@ https://flight-radar.netlify.app/
 - - marker' position olarak obje içisindeki lat ve lng değerlerini ver
 - - haritanın merkezini Türkiye yap
 
-- Popup içerisindeki Detay butonuna tıklanınca `SideDetail.jsx` bileşenini ekrana bas ve bileşen hangi uçağın detayı gösterilicekse onun id'sini aktar
+- Popup içerisindeki Detay butonuna tıklanınca `SideDetail.jsx` bileşenini ekrana bas ve bileşen hangi uçağın detayı göstericekse onun id'sini bileşene aktar
 
 - - Prop olarak gelen uçağın id değerini al ve bununla beraber api'nin details endpoint'ine istek at
 

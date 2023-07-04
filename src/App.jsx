@@ -17,7 +17,12 @@ function App() {
 
   return (
     <>
-      <h1>Uçuş Radarı</h1>
+      {/* header alanı */}
+      <header>
+        <img src="https://seeklogo.com/images/T/turkish-airlines-logo-25BACC2D0C-seeklogo.com.png" />
+        <h2>Uçuş Radarı</h2>
+      </header>
+
       <div className="view-buttons">
         <button
           className={`${showMapView && 'active'}`}

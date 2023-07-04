@@ -7,15 +7,33 @@ import {
 } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useSelector } from 'react-redux';
+import Leaflet from 'leaflet';
+import icon from '../assets/plane-marker.png';
+import { useState } from 'react';
+import SideDetail from './SideDetail';
 
 const MapView = () => {
   const state = useSelector((store) => store);
+  const [showDetails, setShowDetails] = useState(false);
+  const [detailId, setDetailId] = useState();
 
-  console.log(state);
+  // leaflet kütüphanesidnden gelen icon oluşturma fonksiyonun kullanma
+  const planeMarker = Leaflet.icon({
+    iconUrl: icon,
+    iconSize: [45, 45],
+  });
+
+  // detay butonuna tıklanınca çalışır
+  const handleClick = (id) => {
+    // id'yi stat'de tutucaz (bileşene prop olarak gidecek)
+    setDetailId(id);
+    // yan pencerenin açılamsını sağlıyoruz
+    setShowDetails(true);
+  };
+
   return (
     <div>
-      <h1>Harita Görünümü</h1>
-
+      <h2 className="counter">{state.flights.length} Uçak Bulundu</h2>
       <MapContainer
         center={[38.685721, 35.506984]}
         zoom={7}
@@ -34,13 +52,26 @@ const MapView = () => {
          */}
 
         {state.flights.map((flight) => (
-          <Marker position={[flight.lat, flight.lng]}>
+          <Marker
+            icon={planeMarker}
+            position={[flight.lat, flight.lng]}
+          >
             <Popup>
-              Benim imlece tıklanınca göstermek istediğim yazı
+              <div className="popup">
+                <span>Kod: {flight.code}</span>
+                <button onClick={() => handleClick(flight.id)}>
+                  Detay
+                </button>
+              </div>
             </Popup>
           </Marker>
         ))}
       </MapContainer>
+
+      {/* showDetail state'i true ise ekrana yan pencere aç */}
+      {showDetails && (
+        <SideDetail id={detailId} setShowDetails={setShowDetails} />
+      )}
     </div>
   );
 };
